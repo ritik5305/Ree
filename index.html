@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Rima ❤️</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="type-text">Hey Rima... 💖</h1>
+      <p class="sub-text">
+        This website is not just a website, it's a piece of my heart ❤️
+      </p>
+      <button onclick="scrollDown()">
+        Scroll Down to Feel Something Beautiful
+      </button>
+    </div>
+
+    <div class="hearts">
+      <span>❤️</span>
+      <span>💖</span>
+      <span>💘</span>
+      <span>💕</span>
+    </div>
+
+    <section class="poetry-section">
+      <h2>For Rima 💌</h2>
+      <div class="poem">
+        <p class="line">Tere naam ki har ek akshar mein,</p>
+        <p class="line">Ek nayi duniya basti hai...</p>
+        <p class="line">Jismein sirf tu hai,</p>
+        <p class="line">Aur meri khwahish... 💖</p>
+      </div>
+    </section>
+
+    <section class="open-when">
+      <h2>Open When... 💌</h2>
+      <div class="letters-container">
+        <button onclick="showLetter('sad')">You're Sad 😔</button>
+        <button onclick="showLetter('happy')">You're Smiling 😊</button>
+        <button onclick="showLetter('angry')">You're Angry 😡</button>
+        <button onclick="showLetter('miss')">You Miss Me 💕</button>
+      </div>
+
+      <div id="letterBox" class="letter-box hidden">
+        <p id="letterText"></p>
+        <button onclick="closeLetter()">Close</button>
+      </div>
+    </section>
+
+    <section class="special-section">
+      <h2>Why You’re So Special, Rima 💗</h2>
+      <div class="card-container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">Your Smile 😊</div>
+            <div
+              class="flip-card-back"
+              style="
+                background-image: url('Images/smile.jpeg');
+              "
+            >
+              <div class="card-overlay-text">Your Smile 😊</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">Your Eyes 👀</div>
+            <div
+              class="flip-card-back"
+              style="
+                background-image: url('Images/eyes.jpeg');
+              "
+            >
+              <div class="card-overlay-text">Your Eyes 👀</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">Your Simplicity 🌸</div>
+            <div
+              class="flip-card-back"
+              style="
+                background-image: url('Images/simple.jpeg');
+              "
+            >
+              <div class="card-overlay-text">Your Simplicity 🌸</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">Your Face 🌸</div>
+            <div
+              class="flip-card-back"
+              style="
+                background-image: url('Images/face.jpeg');
+              "
+            >
+              <div class="card-overlay-text">Your Face 🌸</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="future-section">
+      <h2>Our Future Together ✨</h2>
+      <div class="future-dreams">
+        <div class="dream">🌇 Candlelight dinner under stars</div>
+        <div class="dream">🌍 Trip to Manali holding hands</div>
+        <div class="dream">🎁 Gifts wrapped with my love</div>
+        <div class="dream">💍 One day... maybe forever</div>
+      </div>
+    </section>
+
+    <section class="final-message">
+      <h2>Just One Last Thing, Rima... ❤️</h2>
+      <p>
+        Main perfect nahi hoon... lekin tumhare liye hamesha loyal, real aur tum
+        ko bepanah pyaar dene wala insaan zaroor hoon.
+      </p>
+      <button onclick="startFireworks()">Click to End with Magic 🎆</button>
+      <canvas id="fireworks"></canvas>
+    </section>
+
+    <script>
+      function scrollDown() {
+        window.scrollBy({ top: 800, behavior: "smooth" });
+      }
+      const letters = {
+        sad: "Hey Rima, agar tum udas ho... toh bas yaad rakhna, main hamesha tumhare saath hoon. Tumhari muskurahat meri duniya hai 🌈",
+        happy:
+          "Rima, jab tum hastae ho na... toh lagta hai jese saari duniya roshan ho gayi ho. Please hamesha aise hi muskuraati raho 🌟",
+        angry:
+          "Agar tum naraz ho... toh mujhe thoda samay do. Main galti se bhi kabhi tumhara dil dukhana nahi chahta tha 😔",
+        miss: "Jab bhi tum mujhe yaad karti ho, samajh lena us waqt main bhi tumhe yaad kar raha hota hoon... hamesha ❤️",
+      };
+
+      function showLetter(type) {
+        document.getElementById("letterText").innerText = letters[type];
+        document.getElementById("letterBox").classList.remove("hidden");
+      }
+
+      function closeLetter() {
+        document.getElementById("letterBox").classList.add("hidden");
+      }
+
+      function startFireworks() {
+        const canvas = document.getElementById("fireworks");
+        const ctx = canvas.getContext("2d");
+        canvas.style.display = "block";
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const fireworks = [];
+
+        function createFirework() {
+          const x = Math.random() * canvas.width;
+          const y = (Math.random() * canvas.height) / 2;
+          const colors = ["#ff4081", "#fce4ec", "#c2185b", "#e91e63"];
+          for (let i = 0; i < 100; i++) {
+            fireworks.push({
+              x: x,
+              y: y,
+              radius: Math.random() * 2,
+              dx: (Math.random() - 0.5) * 4,
+              dy: (Math.random() - 0.5) * 4,
+              alpha: 1,
+              color: colors[Math.floor(Math.random() * colors.length)],
+            });
+          }
+        }
+
+        function animate() {
+          ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          fireworks.forEach((fw, i) => {
+            ctx.beginPath();
+            ctx.arc(fw.x, fw.y, fw.radius, 0, Math.PI * 2);
+            ctx.fillStyle = fw.color;
+            ctx.globalAlpha = fw.alpha;
+            ctx.fill();
+            fw.x += fw.dx;
+            fw.y += fw.dy;
+            fw.alpha -= 0.01;
+            if (fw.alpha <= 0) fireworks.splice(i, 1);
+          });
+          ctx.globalAlpha = 1;
+          requestAnimationFrame(animate);
+        }
+
+        createFirework();
+        setInterval(createFirework, 1000);
+        animate();
+      }
+    </script>
+  </body>
+</html>
