@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>For Rima ❤️</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
   </head>
   <body>
     <div class="container">
+      <a
+      href="https://www.instagram.com/_rima_nath__?igsh=YXJudXh1ZnpnMWs1"
       <h1 class="type-text">Hey Rima... 💖</h1>
+      <a/>
       <p class="sub-text">
         This website is not just a website, it's a piece of my heart ❤️
       </p>
@@ -57,9 +62,7 @@
             <div class="flip-card-front">Your Smile 😊</div>
             <div
               class="flip-card-back"
-              style="
-                background-image: url('Images/smile.jpeg');
-              "
+              style="background-image: url('Images/smile.jpeg')"
             >
               <div class="card-overlay-text">Your Smile 😊</div>
             </div>
@@ -71,9 +74,7 @@
             <div class="flip-card-front">Your Eyes 👀</div>
             <div
               class="flip-card-back"
-              style="
-                background-image: url('Images/eyes.jpeg');
-              "
+              style="background-image: url('Images/eyes.jpeg')"
             >
               <div class="card-overlay-text">Your Eyes 👀</div>
             </div>
@@ -85,9 +86,7 @@
             <div class="flip-card-front">Your Simplicity 🌸</div>
             <div
               class="flip-card-back"
-              style="
-                background-image: url('Images/simple.jpeg');
-              "
+              style="background-image: url('Images/simple.jpeg')"
             >
               <div class="card-overlay-text">Your Simplicity 🌸</div>
             </div>
@@ -99,9 +98,7 @@
             <div class="flip-card-front">Your Face 🌸</div>
             <div
               class="flip-card-back"
-              style="
-                background-image: url('Images/face.jpeg');
-              "
+              style="background-image: url('Images/face.jpeg')"
             >
               <div class="card-overlay-text">Your Face 🌸</div>
             </div>
@@ -130,6 +127,20 @@
       <canvas id="fireworks"></canvas>
     </section>
 
+    <!-- Footer Start -->
+    <footer class="final-footer">
+      <div class="footer-content">
+        <a
+          href="https://www.instagram.com/kalpnaofficial_055"
+          aria-label="Instagram"
+        >
+          <p class="footer-content p">Made by Reet 💖</p>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Footer End -->
+
     <script>
       function scrollDown() {
         window.scrollBy({ top: 800, behavior: "smooth" });
@@ -139,7 +150,7 @@
         happy:
           "Rima, jab tum hastae ho na... toh lagta hai jese saari duniya roshan ho gayi ho. Please hamesha aise hi muskuraati raho 🌟",
         angry:
-          "Agar tum naraz ho... toh mujhe thoda samay do. Main galti se bhi kabhi tumhara dil dukhana nahi chahta tha 😔",
+          "Agar tum naraz ho... toh mujhe thoda samay do. Main galti se bhi kabhi tumhara dil nahi dukhaana chahta. Tum meri zindagi ho, aur main tumhe khush dekhna chahta hoon 💔",
         miss: "Jab bhi tum mujhe yaad karti ho, samajh lena us waqt main bhi tumhe yaad kar raha hota hoon... hamesha ❤️",
       };
 
@@ -178,28 +189,47 @@
           }
         }
 
-        function animate() {
-          ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-          fireworks.forEach((fw, i) => {
-            ctx.beginPath();
-            ctx.arc(fw.x, fw.y, fw.radius, 0, Math.PI * 2);
-            ctx.fillStyle = fw.color;
-            ctx.globalAlpha = fw.alpha;
-            ctx.fill();
-            fw.x += fw.dx;
-            fw.y += fw.dy;
-            fw.alpha -= 0.01;
-            if (fw.alpha <= 0) fireworks.splice(i, 1);
-          });
-          ctx.globalAlpha = 1;
-          requestAnimationFrame(animate);
-        }
+       function animate() {
+  ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  fireworks.forEach((fw, i) => {
+    ctx.beginPath();
+    ctx.arc(fw.x, fw.y, fw.radius, 0, Math.PI * 2);
+    ctx.fillStyle = fw.color;
+    ctx.globalAlpha = fw.alpha;
+    ctx.fill();
+    fw.x += fw.dx;
+    fw.y += fw.dy;
+    fw.alpha -= 0.01;
+    if (fw.alpha <= 0) fireworks.splice(i, 1);
+  });
+  ctx.globalAlpha = 1;
+
+  // ✅ Add this line to draw the names
+  drawNames();
+
+  requestAnimationFrame(animate);
+}
+
 
         createFirework();
         setInterval(createFirework, 1000);
         animate();
       }
+
+      // new 
+      function drawNames() {
+  const ctx = document.getElementById("fireworks").getContext("2d");
+  ctx.save();
+  ctx.font = "bold 40px 'Dancing Script', cursive";
+  ctx.fillStyle = "#ff4081";
+  ctx.textAlign = "center";
+  ctx.shadowColor = "#fff";
+  ctx.shadowBlur = 10; 
+  ctx.fillText("Ree & Reet", window.innerWidth / 2, window.innerHeight / 2);
+  ctx.restore();
+}
+// new end
     </script>
   </body>
 </html>
